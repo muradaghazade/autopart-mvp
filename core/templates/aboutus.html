@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/style-2.css' %}">
+<link rel="stylesheet" href="{% static 'css/aboutus.css' %}">
+<link rel="stylesheet" href="{% static 'css/aboutus_resbansive.css' %}">
+
+
+{% endblock %}
+
+{% block content %}
+      <nav id="navbar" class="navbar navbar-expand-lg navbar-light container about-navbar">
+        <a class="navbar-brand" href="#"><img src="{% static './img/blue_logo.png' %}" alt=""></a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link link-nav" href="#">Əsas <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link-nav" href="#">Mağazalar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link-nav" href="{% url 'core:contact' %}">Əlaqə</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link-nav" href="#">Tarixçə</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link-nav" href="{% url 'core:about' %}">Haqqımızda</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <button id="SignUp-btn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Daxil ol</button>
+            <button id="SignIn-btn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Qeydiyyat</button>
+          </form>
+        </div>
+      </nav>
+
+    <div class="main container-text">
+        <div style="text-align: center;">
+            <div>
+              <h1 class="title">Xoş Gördük, <span style="color: rgb(73, 133, 222);">AutoPart</span></h1>
+              <p class="main-text">AutoPart ehtiyat hissələri üçün  Azərbaycanın ən böyük e-ticarət platformasıdır</p>
+              <p class="content">Biz AutoPart olaraq sürücülərin rahat və tez yolnan lazımi ehtiyat hissəsini tapıb, müxtəlif satıcılardan təkliflər alıb ən uyğunun seçməsi, satıcıların isə əlavə online müştəri bazası qazanması üçün servis təklif edirik.</p>
+            </div>
+
+            <div class="content-div">
+              <h3 class="Driver-text">Niyə AutoPart istifadə etməlisən?</h3>
+              <p class="content">Həm istifadəçilər həmdə satıcılar üçün faydalı olan platformada istifadəçilər asan yolla mağazaları gəzmədən,böyük çeşid sayı arasında seçim edərək ən uyğun ehtiyat hissəsini seçə bilərlər.Satıcılar isə müştərilərini gözləməyəcəklər artıq,özləri müştəriyə limitsiz təklif göndərərək öz onlayn müştəri bazasını artırmaq və pulsuz mağaza yaradmaq imkanı əldə edirlər</p>
+            </div>
+
+            <div>
+              <h3 class="Driver-text">Eleven years ago, we created the best system for DMV knowledge exam preparation. 60 million learners later, it's guaranteed to help anyone pass.</h3>
+            </div>
+
+            <div class="content-div">
+              <video class="video" width="400" controls>
+                <source src="mov_bbb.mp4" type="video/mp4">
+                <source src="mov_bbb.ogg" type="video/ogg">
+                Your browser does not support HTML video.
+              </video>
+
+              <p class="content-video">Driving-Tests.org is the largest independent driver education provider in the US. Driving practice tests are all we do. With 4.5M monthly visitors, we’re the ONLY specialized team dedicated entirely to driving tests: writers, researchers and analysts who know what the DMV wants from applicants and how to teach that.</p>
+              <p class="content">We've partnered with state government agencies and over 2,300 libraries and organizations like NOYS, National Safety Council, Roadway Safety Foundation and Motorcycle Safety Foundation helping make our roads safer for all. Based on a nationwide survey of over 500 visitors to the DMV, aspiring learner drivers who study their state’s DMV manual and take our practice tests are 73 percent more likely to pass the knowledge test than those who study the manual alone. See our press mentions or download the Marketing toolkit.</p>
+            </div>
+
+         </div>
+
+    </div>
+
+    
+<!-- Footer -->
+    {% include "includes/footer.html" %}
+<!-- Footer -->
+{% endblock %}

@@ -1,0 +1,120 @@
+{% extends 'base2.html' %}
+{% load static %}
+
+{% block css %}
+ 
+
+{% endblock %}
+
+{% block content %}
+    <header>
+        <div class="container-fluid">
+            <div class="row">
+                <div id="loginInputContainer" class="col-md-6">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <img class="autopart-logo" src="{% static '/img/Artboard 6 copy@2x.png' %}" alt="">
+                        <h1 class="login-center-text">Qeydiyyatdan Keç</h1>
+                        <p class="welcome-back-text">Xoş Gəlmisiniz!</p>
+                        <div class="email-text-input">
+                            <label for=""><b>Mağazanin Full</b></label><br>
+                            {{form.full_name}}
+                            {{form.full_name.errors}}
+                        </div>
+                        <div class="email-text-input">
+                            <label for=""><b>Mağazanin Adı</b></label><br>
+                            {{form.username}}
+                            {{form.username.errors}}
+                        </div>
+                        <div class="email-text-input">
+                            <label for=""><b>Ünvan</b></label><br>
+                            {{form.adress}}
+                            {{form.adress.errors}}
+                        </div>
+                        <div class="email-text-input">
+                            <label for=""><b>Əlaqə</b></label><br>
+                            {{form.number}}
+                            {{form.number.errors}}
+                        </div>
+                        <div class="email-text-input">
+                            <label for=""><b>Avtomobil Markası</b></label><br>
+                            <select name="" id="">
+                                <option value="">Markanı Seç</option>
+                                <option value="">Audi</option>
+                                <option value="">Porsche</option>
+                                <option value="">VolksWagen</option>
+                            </select>
+                        </div>
+                        <div class="email-text-input">
+                            <label for=""><b>Email / Nömrə</b></label><br>
+                            {{form.email}}
+                            {{form.email.errors}}
+                        </div>
+                        <div class="email-text-input">
+                            <label for=""><b>Şifrə</b></label><br>
+                            {{form.password1}}
+                            {{form.password1.errors}}
+                        </div>
+                        <div class="email-text-input">
+                            <label for=""><b>Şifrə</b></label><br>
+                            {{form.password2}}
+                            {{form.password2.errors}}
+                        </div>
+                        <div class="email-text-input">
+                            <label for=""><b>Məzmun</b></label><br>
+                            {{form.description}}
+                            {{form.description.errors}}
+                        </div>
+                        <div class="email-text-input">
+                            <label for=""><b>Şəkil</b></label><br>
+                            {{form.image}}
+                            {{form.image.errors}}
+                        </div>
+                        <div class="remember-me-or-forget-password">
+                            <div class="remember-me">
+                                <input type="checkbox">
+                                <p>Remember me</p>
+                            </div>
+                            <a href="#">Forgot password?</a>
+                        </div>
+                        <button class="login-button">Register</button>
+                        <p style="text-align: center;" class="register-click">or <a href="{% url 'accounts:login' %}">Login</a></p>
+                    </form>  
+                </div>
+                <div id="loginSliderContainer" class="col-md-6">
+                    <div class="slider-container">
+                        <div class="slider">
+                            <div class="slide slide1">
+                                <img class="slide-img about-autopart" src="{% static '/img/[removal.ai]_d2257089-9ec1-41bd-b066-d3e25f9bc0df-screenshot-35.png' %}" alt="">
+                                <h4>AutoPart Nədir?</h4>
+                                <p>Biz autopart olaraq sürücülərin rahat və tez yolnan lazımi ehtiyat hissəsini tapıb,
+                                    müxtəlif satıcılardan təkliflər alıb ən uyqunun seçməsi, satıcıların isə əlavə
+                                    online müştəri bazası qazanması üçün servis təklif edirik.</p>
+                            </div>
+                            <div class="slide slide2">
+                                <img class="slide-img"  src="{% static '/img/[removal.ai]_671459a6-2d19-489c-a404-18356b1854ca-screenshot-39.png' %}" alt="">
+                                <h4>AutoPart-da satıcı olmağın faydaları:</h4>
+                                <p>Pulsuz mağaza yaradmaq imkanı
+                                    Limitsiz təkliflər göndərmək imkanı
+                                    Onlayn müştəri bazası qazan.</p>
+                            </div>
+                            <div class="slide slide3">
+                                <img class="slide-img"  src="{% static '/img/[removal.ai]_e33a9157-0dad-4698-8ec0-b126193dfa33-screenshot-37.png' %}" alt="">
+                                <h4>AutoPart-da alıcı olmağın faydaları:</h4>
+                                <p>Artıq mağazaları gəzməyə ehtiyac yoxdur
+                                    Ən uyğun razılaşma ilə lazım olan hissəni tapın
+                                    Böyük çeşid sayı,fərqli satıcılardan hamısı bir platformada.</p>
+                            </div>
+                        </div>
+                        <div class="controls">
+                            <button class="slide-button" data-slide-index="1"></button>
+                            <button class="slide-button" data-slide-index="2"></button>
+                            <button class="slide-button" data-slide-index="3"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+{% endblock %}

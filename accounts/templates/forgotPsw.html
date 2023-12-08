@@ -1,0 +1,32 @@
+{% extends 'base2.html' %}
+{% load static %}
+
+{% block css %}
+ 
+
+{% endblock %}
+
+{% block content %}
+
+    <main>
+        <section>
+            <div id="loginInputContainer">
+                <form action="" method="post">
+                    {%csrf_token%}
+                    <div>
+                        <img class="autopart-logo" src="{% static './img/Artboard 6 copy@2x.png' %}" alt="">
+                        <h1 class="login-center-text">Şifrəni Dəyiş</h1>
+                    </div>
+                    <div class="email-text-input">
+                        <label for=""><b>E-poçt</b></label><br>  
+                        {{form.email}}
+                        {{form.email.errors}}
+                    </div>
+                    <button class="login-button">Göndər</button>
+                </form>  
+            </div>
+        </section>
+    </main>
+  
+  
+{% endblock %}

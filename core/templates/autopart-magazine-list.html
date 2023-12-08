@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet"  href="{% static './css/autopart-magazine-list.css'%}">
+<link rel="stylesheet" href="{% static './css/autopart-magazine-list-responsive.css'%}">
+
+
+{% endblock %}
+
+{% block content %}
+    
+  {% include "includes/navbar.html" %}
+
+    
+    <div class="main-text-search">
+      <h1 class="main-text">Mağazalar</h1>
+      <div class="search-filters">
+        <div class="search-magazines">
+          <input id="searchInput" type="text" placeholder="Mağaza axtarışı">
+          <img src="{% static './img/[removal.ai]_c6a5aa8f-55e4-4c5c-b82e-77e988d1f735-screenshot-30.png'%}" alt="">
+        </div>
+        <div class="select-links">
+          <select class="category-select" id="categorySelect">
+              <option value="all">Hamısı</option>
+              <option value="Ban">Ban</option>
+              <option value="Texniki">Texniki</option>
+              <option value="Salon">Salon</option>
+          </select>
+          <select class="category-select">
+            <option value="">Təklif sayı üzrə</option>
+            <option value="">(A-Z)</option>
+            <option value="">(Z-A)</option>
+            <option value="">Populyarlıq üzrə</option>
+          </select>
+      </div>
+      </div>
+    
+    </div>
+
+
+    <div id="storeList" class="grid-container">
+      <div class="grid-item">
+          <img class="store-image" src="{% static './img/logo (135).jpg'%}" alt="">
+          <div class="store-info">
+        <div class="store-name">jifijief</div>
+        <div >ijfeihfeie</div>
+        
+        <div class="phone-number">
+          <img class="tel-img" src="{% static './img/tel.png'%}">' + store.phoneNumber
+        </div>
+        <div class="views">
+          <img class="views-img" src="{% static './img/views.png'%}">' + store.views
+        </div>
+        </div>
+      </div>
+      
+      <div class="grid-item">
+        <img class="store-image" src="{% static './img/logo (135).jpg'%}" alt="">
+        <div class="store-info">
+      <div class="store-name">jifijief</div>
+      <div >ijfeihfeie</div>
+      
+      <div class="phone-number">
+        <img class="tel-img" src="{% static './img/tel.png'%}">' + store.phoneNumber
+      </div>
+      <div class="views">
+        <img class="views-img" src="{% static './img/views.png'%}">' + store.views
+      </div>
+      </div>
+    </div>
+
+    <div class="grid-item">
+      <img class="store-image" src="{% static './img/logo (135).jpg'%}" alt="">
+      <div class="store-info">
+    <div class="store-name">jifijief</div>
+    <div >ijfeihfeie</div>
+    
+    <div class="phone-number">
+      <img class="tel-img" src="{% static './img/tel.png'%}">' + store.phoneNumber
+    </div>
+    <div class="views">
+      <img class="views-img" src="{% static './img/views.png'%}">' + store.views
+    </div>
+    </div>
+  </div>
+    </div>
+
+
+
+          <!-- Footer -->
+ 
+{% include "includes/footer.html" %}
+<!-- Footer -->
+
+
+{% endblock %}

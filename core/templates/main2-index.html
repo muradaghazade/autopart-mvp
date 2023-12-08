@@ -1,0 +1,318 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+
+<link rel="stylesheet" href="{% static '/css/responsivee.css' %}">
+{% endblock %}
+
+{% block content %}
+<header>
+  <div class="header_main" style="background-image: url({% static './img/background1-removebg.png' %})">
+    {% include "includes/navbar.html" %}
+      
+      <div class="header-inner" style="padding-top: 50px; padding-bottom: 50px;">
+        <h1 class="header_main_text_h1">Avtomobilini seç & Hissəni  tap</h1>
+        <p class="header_main_text_p">Qoy lazımi ehtiyat hissəsi səni tapsın!</p>
+        <div class="search_and_select">
+            <div class="header_search_input">
+                <input  type="search" placeholder="VIN kodunuzu daxil edin.">
+                <a href="result.html"><svg class="search-icon svg" style="width: 18px;" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>.svg{fill:#4985de !important}</style><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg></a>
+            </div>
+            <div class="btn-container">
+              <button id="toggleButton" class="vin_filter_btn">Filterlə daxil edin</button>
+            </div>
+            <div id="textContainer" class="visible">
+              <p><svg class="check-icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff !important}</style><path d="M64 80c-8.8 0-16 7.2-16 16V416c0 8.8 7.2 16 16 16H384c8.8 0 16-7.2 16-16V96c0-8.8-7.2-16-16-16H64zM0 96C0 60.7 28.7 32 64 32H384c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zM337 209L209 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L303 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg></i> Asan və tez </p>
+              <p><svg class="check-icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff !important}</style><path d="M64 80c-8.8 0-16 7.2-16 16V416c0 8.8 7.2 16 16 16H384c8.8 0 16-7.2 16-16V96c0-8.8-7.2-16-16-16H64zM0 96C0 60.7 28.7 32 64 32H384c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zM337 209L209 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L303 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg></i> Geniş çeşid</p>
+              <p><svg class="check-icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff !important}</style><path d="M64 80c-8.8 0-16 7.2-16 16V416c0 8.8 7.2 16 16 16H384c8.8 0 16-7.2 16-16V96c0-8.8-7.2-16-16-16H64zM0 96C0 60.7 28.7 32 64 32H384c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zM337 209L209 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L303 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg></i> Uyğun ehtiyyat hissəsi</p>
+          </div>
+            <div id="inputContainer" class="hidden filters" >
+                <select class="filter_mark filter-item"  name="" id="">
+                    <option value="">Mark</option>
+                    <option value="">Mercedes-Benz</option>
+                    <option value="">BMW</option>
+                    <option value="">Chevrolet</option>
+                    <option value="">Honda</option>
+                    <option value="">Audi</option>
+                </select>
+
+                <select class="filter_model filter-item" name="" id="">
+                    <option value="">Model</option>
+                    <option value="">S-Class 65 Coupe AMG</option>
+                    <option value="">A4</option>
+                    <option value="">A6</option>
+                    <option value="">Insight</option>
+                    <option value="">Cruze</option>
+                    <option value="">Malibu</option>
+                </select>
+
+                <select class="filter_type" filter-item name="" id="">
+                    <option value="">Sinif</option>
+                    <option value="">SUV</option>
+                    <option value="">Sedan</option>
+                    <option value="">Hatchback</option>
+                    <option value="">Coupe</option>
+                    <option value="">Minivan</option>
+                </select>
+            </div>
+        </div>
+
+      </div>
+    </div>
+</header>
+
+    <main>
+      
+
+      <section class="main-section">
+
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 car-logo-img">
+              <div class="main-left-container">
+                <img style="max-width: 100%; max-height: 100%;" src="{% static './img/580b57fcd9996e24bc43c479.png '%}" alt="">
+              </div>
+            </div>
+            <div class="col-md-6 car-info">
+              <div class="main-right-container">
+                <h2 class="mark-model-name">Chevrolet Cruze 2017</h2>
+                <p class="mark-model-vin">VIN: <span>1G1BC5SM5H7221134</span></p>
+                <p class="mark-model-engine">MOTOR: <span>1.4L</span></p>
+                <p class="mark-model-year">İL: <span>2017</span></p>
+                <p class="mark-model-type">Sinif: <span>SEDAN</span></p>
+                <p class="mark-model-manufactured">İSTEHSAL EDİLİB: <span>ABŞ</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="main-info-container container">
+          <table class="main-table">
+            <tr>
+              <td style="background-color: #f9f9f9;width: 40%;">İstehsalçı</td>
+              <td style="background-color: #f9f9f9;"><span>GM Motors</span></td>
+            </tr>
+            <tr>
+              <td>Zavod şirkətinin adı</td>
+              <td><span>-</span></td>
+            </tr>
+            <tr>
+              <td style="background-color: #f9f9f9;">Avtomobilin növü</td>
+              <td style="background-color: #f9f9f9;"><span>SƏNİŞİN MAŞINI</span></td>
+            </tr>
+            <tr>
+              <td>Seriası</td>
+              <td><span>Cruze</span></td>
+            </tr>
+            <tr>
+              <td style="background-color: #f9f9f9;">Sinif</td>
+              <td style="background-color: #f9f9f9;"><span>Sedan</span></td>
+            </tr>
+            <tr>
+              <td>Qapılar</td>
+              <td><span>4</span></td>
+            </tr>
+            <tr>
+              <td style="background-color: #f9f9f9;">Ön hava yastığının yeri</td>
+              <td style="background-color: #f9f9f9;"><span>1-ci sıra (Sürücü və Sərnişin)</span></td>
+            </tr>
+            <tr>
+              <td>Təhlükəsizlik kəmərlərinin növü</td>
+              <td><span>Manual</span></td>
+            </tr>
+            <tr>
+              <td style="background-color: #f9f9f9;">Mühərrikin yerdəyişməsi (CC)</td>
+              <td style="background-color: #f9f9f9;"><span>1400</span></td>
+            </tr>
+            <tr>
+              <td>Yanacaq növü</td>
+              <td><span>Benzin</span></td>
+            </tr>
+            <tr>
+              <td style="background-color: #f9f9f9;">Mühərrikin silindrlərinin sayı</td>
+              <td style="background-color: #f9f9f9;"><span>4</span></td>
+            </tr>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    
+    <div class="container-fluid container ">
+      <h2 class="title">Axtardiqin ehtiyat hissesin sec</h2>
+      <div class="row">
+        <div class="col-md-4 ">
+          <div class="animation-div">
+            <div class="ban-main ">
+              <div>
+                <h3 class="ban-h3">Ban növü</h3> 
+              </div>
+              <div class="bam-div-img">
+                <img class="ban-img" src="{% static './img/body.png '%}" alt="">
+              </div>
+
+            </div>
+            
+            <div class="dropdown down-div">
+              <button class="dropdown-toggle ban-down" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Kataqoriylar
+              </button>
+              <ul class="dropdown-menu">
+                <li  class="dropend">
+                  <div>
+                    <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      asasasas
+                    </a>
+                  </div>
+                  <div>
+                    <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      asasasas
+                    </a>
+                  </div>
+                  <div>
+                    <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      asasasas
+                    </a>
+                  </div>
+                  <div>
+                    <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      asasasas
+                    </a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            
+          </div>
+          
+        </div>
+
+        <div class="col-md-4 main">
+          <div class="animation-div">
+            <div class="ban-main">
+              <div>
+                <h3 class="ban-h3">Interyer</h3> 
+              </div>
+              <div class="bam-div-img">
+                <img class="interyer-img" src="{% static './img/salon.png'%}" alt="">
+              </div>
+
+            </div>
+            
+            <div class="dropdown down-div">
+              <button class="dropdown-toggle ban-down" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown
+              </button>
+              <ul class="dropdown-menu">
+                <li  class="dropend">
+                  <div>
+                    <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      asasasas
+                    </a>
+                  </div>
+                  <div>
+                    <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      asasasas
+                    </a>
+                  </div>
+                  <div>
+                    <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      asasasas
+                    </a>
+                  </div>
+                  <div>
+                    <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      asasasas
+                    </a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+        </div>
+
+        <div class="col-md-4 main">
+          <div class="animation-div">
+            <div class="ban-main">
+              <div>
+                <h3 class="ban-h3">Texniki Hissə</h3> 
+              </div>
+              <div class="bam-div-img">
+                <img class="motor-img" src="{% static './img/texniki.png'%}" alt="">
+              </div>
+
+            </div>
+
+            <div class="dropdown down-div">
+              <button class="dropdown-toggle ban-down" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown
+              </button>
+              <ul class="dropdown-menu">
+                <li class="dropend">
+                  <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    asasasas
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li>
+                      <hr class="dropd own-divider">
+                    </li>
+                    
+                  </ul>
+                </li>
+                <li class="dropend">
+                  <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    asasasas
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Actsasasion</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li>
+                      <hr class="dropdown-divider">
+                    </li>
+                    
+                  </ul>
+                </li>
+                <li class="dropend">
+                  <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    asasasas
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li>
+                      <hr class="dropdown-divider">
+                    </li>
+                    
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container request-main">
+      <div>
+        <h2 class="title">Baqaj qapağı hazırdı</h2>
+      </div>
+      <div>
+        <a href=""><button class="create-request">Sorğunu yarad</button></a>
+      </div>
+    </div>
+
+
+    
+
+    <!-- ///////////footer//////////////// -->
+        
+      <!-- Footer -->
+      {% include "includes/footer.html" %}
+<!-- Footer -->
+
+
+{% endblock %}

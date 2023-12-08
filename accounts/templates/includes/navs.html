@@ -1,0 +1,36 @@
+{% load static %}
+
+<nav id="asideBar" class="sidebar">
+    <div class="navbar-main-container">
+          <div class="navbar">
+              <div class="user-profile">
+                  <div class="profile">
+                      <span>RM</span>
+                  </div>
+                  {% if request.user.is_authenticated %} 
+          <a  href="{% url 'accounts:profile' request.user.slug %}   "><p>{{ request.user.username }} </p></a>
+                  
+              </div>
+              <div class="overview">
+                  <span>OverView</span>
+                  <ul>
+                      <li><a href="#">Dashboard</a></li>
+                      <li><a href="#">Inbox</a></li>
+                      <li><a href="#">AI Assistant</a></li>
+                      <li><a href="#">Requests</a></li>
+                      <li><a href="#">Bookings</a></li>
+                  </ul>
+              </div>
+          </div>
+          
+          <div style="display: flex;justify-content: left;">
+              <img id="logo" src="{% static './img/blue-full-logo-2.png' %}" alt="">
+              <a href="{% url 'accounts:log-out' %}"><button id="login-out" style="font-size: 13px; font-family: sans-serif;     border: none; color: #000000;outline: none;">Logout</button></a>
+         
+              {%else%}
+              <a href="{% url 'accounts:log-out' %}"><button id="login-out" class="overview" style="font-size: 13px; font-family: sans-serif;   background-color: white; border: none; color: #1877F2;outline: none;">LOGIN</button></a>
+              {% endif %}
+
+          </div>
+      </div>
+  </nav>

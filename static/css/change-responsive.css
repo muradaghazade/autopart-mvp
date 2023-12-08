@@ -1,0 +1,27 @@
+@media screen and (max-width: 449px) {
+
+    input, button {
+        max-width: 320px;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 449px) {
+
+    input, button {
+        max-width: 290px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+
+    input, button {
+        max-width: 265px;
+    }
+}
+
+/* @media (min-width: 280px) and (max-width: 359px) {
+
+    input, button {
+        max-width: 260px;
+    }
+} */

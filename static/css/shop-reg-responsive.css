@@ -1,0 +1,61 @@
+@media screen and (max-width: 871px) {
+    
+    #loginInputContainer {
+        padding-bottom: 100px;
+    }
+}
+
+@media screen and (max-width: 466px) {
+    form {
+        /* padding-left: 100px; */
+        width: 320px !important;
+    }
+
+    select, option, input, button {
+        max-width: 100%;
+    }
+
+    .password-input {
+        font-size: 12px;
+    }
+
+    .slider-container {
+        width: 320px;
+    }
+
+    .slider {
+        width: 960px;
+    }
+
+}
+
+@media screen and (max-width: 352px) {
+    form {
+        /* padding-left: 100px; */
+        max-width: 260px !important;
+    }
+
+    input {
+        font-size: 10px !important;
+    }
+
+    .slider-container {
+        width: 270px;
+    }
+
+    .slider {
+        max-width: 810px;
+    }
+
+    .slide-img {
+        width: 220px;
+    }
+
+    .slide {
+        width: 270px; 
+    }
+
+    .slide p, .slide h4{
+        width: 270px;
+      }
+}
